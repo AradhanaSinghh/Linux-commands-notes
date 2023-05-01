@@ -1,0 +1,32 @@
+chmod -- is used to change and assign permission to a file or
+a directory
+permissions- 3 permissions:-
+read 
+write 
+execute 
+------------------------
+1) ls -l exam/file2.txt
+shows the full path of file2 
+o/p :- -rw-rw---x 1 aradhana aradhana 14 May 28 16:54 
+where first three is for owner, then second three is for group and the last three is for others
+ 
+2) aradhana@aradhana-VirtualBox:~/Desktop$ chmod 751 exam/file2.txt
+   aradhana@aradhana-VirtualBox:~/Desktop$ ls -l exam/file2.txt
+o/p:-  -rwxr-x--x 1 aradhana aradhana 14 May 28 16:54 exam/file2.txt
+
+3)aradhana@aradhana-VirtualBox:~/Desktop$ chmod u-x exam/file2.txt
+aradhana@aradhana-VirtualBox:~/Desktop$ chmod go+w exam/file2.txt
+aradhana@aradhana-VirtualBox:~/Desktop$ ls -l exam/file2.txt
+
+o/p :-  -rw-rwx-wx 1 aradhana aradhana 14 May 28 16:54 exam/file2.txt
+
+4)chmod a=rw exam/file2.txt
+-rw-rw-rw- 1 aradhana aradhana 14 May 28 16:54 exam/file2.txt
+
+5)chmod ug+rw,o+x exam/file2.txt
+ls -l exam/file2.txt
+o/p:- -rw-rw---x 1 aradhana aradhana 14 May 28 16:54 exam/file2.txt
+
+
+
+

@@ -1,0 +1,60 @@
+lseek- reposition read/write file offset
+
+fd- file descriptor
+offset- position of pointer
+whence- pointer position kaha se karna hai
+---------------------------------------------
+#lseek_cur:-
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<unistd.h>
+int main()
+{
+int n,f,f1;
+char buff[10];
+f=open("seeking",O_RDWR);
+read(f,buff,10);
+write(1,buff,10);
+lseek(f,10,SEEK_CUR);//skips 10 characters
+read(f,buff,10);
+write(1,buff,10);
+}
+
+#lseek_set:-
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<unistd.h>
+int main()
+{
+int n,f,f1;
+char buff[10];
+f=open("seeking",O_RDWR);
+read(f,buff,10);
+write(1,buff,10);
+f1=lseek(f,10,SEEK_SET);
+printf("Pointer is at %d position\n",f1);
+read(f,buff,10);
+write(1,buff,10);
+}
+
+#lseek_end:-
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<unistd.h>
+int main()
+{
+int n,f,f1;
+char buff[10];
+f=open("seeking",O_RDWR);
+read(f,buff,10);
+write(1,buff,10);
+f1=lseek(f,-11,SEEK_END);//10 positions print krni hai th ek extra character hoga
+read(f,buff,10);
+write(1,buff,10);
+}
+
+
+

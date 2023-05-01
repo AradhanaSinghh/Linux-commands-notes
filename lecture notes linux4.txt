@@ -1,0 +1,127 @@
+ // file descriptor default value 1
+//syntax
+Gcc- GNU compiler collection
+man 2 is used for system calls 
+man 1 is used for commands
+file descriptor means which file we are going to use  
+nano is an editor to create c file 
+
+---------------------------------------------------------
+
+Write(fd,”string”,size in bytes)
+ 
+Example 1.
+#include<stdio.h>
+Int main()
+{
+Write(1,”string”,7);
+}
+
+#include<stdio.h>
+Int main()
+{
+Int buff[30];//whenever we want to read we use read
+read(0,buff,7);
+//to show the read characters
+Write(1,buff,10);
+}
+
+required header files open system call
+#include<sys/types.h>
+//flag
+#include<sys/stat.h>
+//define the structure which has to be return
+#include<fcntl.h>
+//contains definition of open
+#include<unistd.h>
+//for symbolic constants and types
+ 
+Case 1
+
+//file already exist with some data
+Int open(filename/path,flags)
+//flags—read only(O_RDONLY),write only(O_WRONLY), both(O_RDWR)
+ 
+Case 2
+//file does not exist
+Int open(filename/path,flag,mode)
+//mode—permissions
+When file is created permissions are provided
+
+// to read/write from a file we need a file descriptor we use open system  call
+
+case1:
+#include<stdio.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<unistd.h>
+int main()
+{
+int fd, n;
+char buff[30];
+fd=open("exam/file2.txt",O_RDONLY);
+printf("file descriptor is :- %d", fd);
+n=Read(fd,buff,20);
+write(1,buff,n);
+}
+
+#how to copy the content of a file to a new file using open
+
+ans:- 
+
+#include<stdio.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<unistd.h>
+int main()
+{
+int fd,fd1,n;
+char buff[50];
+fd=open("exam/file2.txt",O_RDONLY);
+printf("file descriptor is :- %d", fd);
+n=read(fd,buff,50);
+fd1=open("target",O_CREAT|O_WRONLY,0642);
+write(fd1,buff,n);
+}
+
+#how to overwrite the content of new file 
+
+#include<stdio.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<unistd.h>
+int main()
+{
+int fd,fd1,n;
+char buff[50];
+//fd=open("exam/file2.txt",O_RDONLY);
+//printf("file descriptor is :- %d", fd);
+n=read(0,buff,50);
+fd1=open("target",O_WRONLY);
+write(fd1,buff,n);
+}
+ 
+#For appending 
+
+#include<stdio.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<unistd.h>
+int main()
+{
+int fd,fd1,n;
+char buff[50];
+//fd=open("exam/file2.txt",O_RDONLY);
+//printf("file descriptor is :- %d", fd);
+n=read(0,buff,50);
+fd1=open("target",O_WRONLY|O_APPEND);
+write(fd1,buff,n);
+}
+
+
+
+

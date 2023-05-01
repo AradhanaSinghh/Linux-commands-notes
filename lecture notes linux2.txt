@@ -1,0 +1,21 @@
+1)mv - is used to move a file from one location to another
+ move (rename) files
+ mv - function:- 
+ Rename  SOURCE  to DEST, or move SOURCE(s) to
+ DIRECTORY.
+
+2)we can use touch a{1..100}.txt to create 100 files
+--------------------------
+Ubuntu is a linux distribution
+unix is foundation of linux
+macos in unix based
+--------------------------
+cli and gui interface
+windows focus on gui 
+ubuntu focus on gui and cli also 
+-----------------------------
+/ - root node 
+it has tree like structure
+--------------------------
+
+

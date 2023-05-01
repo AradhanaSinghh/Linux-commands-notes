@@ -1,0 +1,85 @@
+to get process in order we use wait
+
+#if we want to make parent wait
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/wait.h>//to print in order
+#include<sys/types.h>
+int main()
+{
+pid_t p;
+printf("See before fork\n");
+p=fork();
+if(p==0)//for child process 
+{
+printf("I am child having id %d\n",getpid());
+printf("my parent id is %d\n",getppid());
+}
+else
+{
+wait(NULL);
+printf("my child id is %d\n",p);//for parent process
+printf("I am parent having id %d\n",getpid());
+}
+printf("Common\n");
+}
+
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/wait.h>//to print in order
+#include<sys/types.h>
+int main()
+{
+pid_t p;
+printf("See before fork\n");
+p=fork();
+if(p==0)//for child process 
+{
+sleep(3);
+printf("I am child having id %d\n",getpid());
+printf("my parent id is %d\n",getppid());
+}
+else
+{
+//wait(NULL);
+printf("my child id is %d\n",p);//for parent process
+printf("I am parent having id %d\n",getpid());
+}
+printf("Common\n");
+}
+................................
+wait can only be used with parent process so that it's child process will execute
+but it's not possible in case of child as child must wait for it's child process
+
+sleep can be used in both parent and child process.
+----------------------------------------
+#wait 
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/wait.h>//to print in order
+#include<sys/types.h>
+int main()
+{
+pid_t p;
+printf("See before fork\n");
+p=fork();
+if(p==0)//for child process 
+{
+sleep(3);
+printf("I am child having id %d\n",getpid());
+printf("my parent id is %d\n",getppid());
+}
+else
+{
+printf("my child id is %d\n",p);//for parent process
+wait(NULL);
+printf("I am parent having id %d\n",getpid());
+}
+printf("Common\n");
+}
+
+---------------------------------
+
+
+
+ 

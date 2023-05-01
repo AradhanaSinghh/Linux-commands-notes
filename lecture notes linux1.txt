@@ -1,0 +1,105 @@
+#Installation
+sudo apt install build-essential dkms linux-headers-$(uname -r)
+---------------------------
+
+1. pwd--print the present working directory
+syntax-- pwd and enter
+
+2. ls-- list the files/folders of the prsent directory
+syntax -  ls and enter
+
+***cd means current directory 
+3. man-- open the manual of a given command
+syntax-- man cmdname
+** you can type q to quit and h for help
+
+4. touch-- create an empty file
+syntax-- touch filename
+
+5. cat-- enter text into an empty file/ dislpay the content of the file/ append the content into existing file.
+syntax-- cat filename(display)
+
+cat > filename(enter text)
+press ctrl+d to save and exit
+cat >> filename(append)
+****imp:- if we use cat > filename for append then it will just overwrite the content
+which was earlier present on the file
+
+**clear -- command is used to clear the terminal 
+
+cat -n f1.txt 
+put numbers with each line in the output
+
+
+cat -e f1.txt 
+put $ at last line in the output
+
+tac f1.txt --prints the output in reverse order
+
+cat f1.txt > f2.txt -means that the f1.txt is directed to f2.txt
+and f2.txt content would be overwritten by f1.txt
+
+***displaying multiple files:-
+cat f1.txt f2.txt
+
+***creating two or more files together:-
+touch f3.txt f4.txt 
+
+
+6. rm--to remove the files
+syntax -- rm filename
+
+**removing multiple files
+rm f3.txt f4.txt 
+---------------------------------
+7.mkdir-for creating a directory 
+ 
+7.1 -- NESTED DIRECTORIES:-
+mkdir -p d1/d2/d3 #this will create nested directory
+-- -p stands for creating parent child directory at once 
+
+8.cd .. - for moving back a level 
+
+9.cd - if we only write one time cd it will directly come out 
+of the multiple directories
+----------------------------------
+rmdir-for removing an empty directory
+rm -r foldername is used for removing a folder in nested directory 
+
+------------------------------
+question:-create the directories as given cse/2year/os/lab. and remove os.
+answer:- mkdir -p cse/2year/os/lab.
+cd cse/2year
+rm -r os
+------------------------------
+ ls -l f1.txt used for listing long for any file or folder
+ls -l d1
+---------------
+cp for copying a file 
+cp f1.txt f2.txt --here all the content of f1 will be into f2
+----------------
+steps to copy file from desktop to a file inside a folder
+cd d1
+touch new.txt
+cd ..
+cp f1.txt d1/new.txt
+cd d1
+cat new.txt
+----------------------
+mkdir d1/d2
+cd d1/d2
+touch f1.txt
+cat > f1.txt
+cat mat
+cd ..
+cd ..
+
+mkdir n1
+cd n1
+touch f2.txt
+cat > f2.txt
+thanks for help
+cd ..
+
+cp n1/f2.txt d1/d2/f1.txt
+-------------------------
