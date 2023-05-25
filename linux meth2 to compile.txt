@@ -1,0 +1,16 @@
+another way of compiling:- 
+
+aradhana@aradhana-VirtualBox:~/Desktop$ gcc -o example fork2.c
+
+aradhana@aradhana-VirtualBox:~/Desktop$ ./example
+
+See before fork
+
+my child id is 3965
+
+I am child having id 3965
+
+my parent id is 3964
+
+aradhana@aradhana-VirtualBox:~/Desktop$ 
+
